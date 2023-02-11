@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RialtoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Boby_type">
+    <Key>
+      <PropertyRef Name="boby_id" />
+    </Key>
+    <Property Name="boby_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="boby_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Boby_type" FromRole="Boby_type" ToRole="Cars" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Boby_type" FromRole="Boby_type" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="auto_id" />
+    </Key>
+    <Property Name="auto_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="boby_id" Type="Int32" Nullable="false" />
+    <Property Name="carrying" Type="Double" Nullable="false" />
+    <Property Name="model_id" Type="Int32" Nullable="false" />
+    <Property Name="car_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="next_tech_review" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Boby_type" Relationship="Self.FK_Cars_Boby_type" FromRole="Cars" ToRole="Boby_type" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Cars_Companies" FromRole="Cars" ToRole="Companies" />
+    <NavigationProperty Name="Model" Relationship="Self.FK_Cars_Models" FromRole="Cars" ToRole="Models" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Cars" FromRole="Cars" ToRole="Contracts" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_of_foundation" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="rating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Companies" FromRole="Companies" ToRole="Cars" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Companies" FromRole="Companies" ToRole="Contracts" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_Drivers_Companies" FromRole="Companies" ToRole="Drivers" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="contract_id" />
+    </Key>
+    <Property Name="contract_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="auto_id" Type="Int32" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="finish_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Contracts_Cars" FromRole="Contracts" ToRole="Cars" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Contracts_Companies" FromRole="Contracts" ToRole="Companies" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_Contracts_Drivers" FromRole="Contracts" ToRole="Drivers" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Contracts_Orders" FromRole="Contracts" ToRole="Orders" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Contracts" FromRole="Contracts" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="phone_number" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="driver_id" />
+    </Key>
+    <Property Name="driver_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birh_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="phone_number" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Drivers_Companies" FromRole="Drivers" ToRole="Companies" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Drivers" FromRole="Drivers" ToRole="Contracts" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="location_id" />
+    </Key>
+    <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="location1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contract_id" Type="Int32" Nullable="false" />
+    <Property Name="location_date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK_Locations_Contracts" FromRole="Locations" ToRole="Contracts" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="model_id" />
+    </Key>
+    <Property Name="model_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="model_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brand" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="year_production" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Models" FromRole="Models" ToRole="Cars" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="weight" Type="Double" Nullable="false" />
+    <Property Name="volume" Type="Double" Nullable="false" />
+    <Property Name="body_type_id" Type="Int32" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="address_from" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address_to" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="point_from" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="point_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Boby_type" Relationship="Self.FK_Orders_Boby_type" FromRole="Orders" ToRole="Boby_type" />
+    <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Orders" FromRole="Orders" ToRole="Contracts" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Cars_Boby_type">
+    <End Role="Boby_type" Type="Self.Boby_type" Multiplicity="1" />
+    <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boby_type">
+        <PropertyRef Name="boby_id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="boby_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Boby_type">
+    <End Role="Boby_type" Type="Self.Boby_type" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boby_type">
+        <PropertyRef Name="boby_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="body_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_Companies">
+    <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cars_Models">
+    <End Role="Models" Type="Self.Model" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Models">
+        <PropertyRef Name="model_id" />
+      </Principal>
+      <Dependent Role="Cars">
+        <PropertyRef Name="model_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contracts_Cars">
+    <End Role="Cars" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cars">
+        <PropertyRef Name="auto_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="auto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contracts_Companies">
+    <End Role="Companies" Type="Self.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Drivers_Companies">
+    <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Drivers" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="Drivers">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contracts_Drivers">
+    <End Role="Drivers" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="driver_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="driver_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contracts_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Contracts">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Contracts">
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contracts">
+        <PropertyRef Name="contract_id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="contract_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RialtoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Boby_type" EntityType="Self.Boby_type" />
+    <EntitySet Name="Cars" EntityType="Self.Car" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Contracts" EntityType="Self.Contract" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="Models" EntityType="Self.Model" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Cars_Boby_type" Association="Self.FK_Cars_Boby_type">
+      <End Role="Boby_type" EntitySet="Boby_type" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Boby_type" Association="Self.FK_Orders_Boby_type">
+      <End Role="Boby_type" EntitySet="Boby_type" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_Companies" Association="Self.FK_Cars_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cars_Models" Association="Self.FK_Cars_Models">
+      <End Role="Models" EntitySet="Models" />
+      <End Role="Cars" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contracts_Cars" Association="Self.FK_Contracts_Cars">
+      <End Role="Cars" EntitySet="Cars" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contracts_Companies" Association="Self.FK_Contracts_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Drivers_Companies" Association="Self.FK_Drivers_Companies">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Drivers" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contracts_Drivers" Association="Self.FK_Contracts_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contracts_Orders" Association="Self.FK_Contracts_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Contracts" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Contracts" Association="Self.FK_Locations_Contracts">
+      <End Role="Contracts" EntitySet="Contracts" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

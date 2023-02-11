@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30a551bee6c048d0b8f7d9287692428c" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="RialtoModel.Boby_type" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Car" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Company" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Contract" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Customer" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Driver" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Location" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Model" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.Order" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RialtoModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="RialtoModel.FK_Cars_Boby_type" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Orders_Boby_type" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Cars_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Cars_Models" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Contracts_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Contracts_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Drivers_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Contracts_Drivers" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Contracts_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Locations_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="RialtoModel.FK_Orders_Customers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

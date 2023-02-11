@@ -34,6 +34,7 @@
             this.вийтиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.автівкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queryEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вийтиToolStripMenuItem,
             this.обліковийЗаписToolStripMenuItem,
-            this.автівкиToolStripMenuItem});
+            this.автівкиToolStripMenuItem,
+            this.queryEditToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(686, 28);
@@ -87,6 +89,13 @@
             this.автівкиToolStripMenuItem.Text = "Автівки";
             this.автівкиToolStripMenuItem.Click += new System.EventHandler(this.автівкиToolStripMenuItem_Click);
             // 
+            // queryEditToolStripMenuItem
+            // 
+            this.queryEditToolStripMenuItem.Name = "queryEditToolStripMenuItem";
+            this.queryEditToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.queryEditToolStripMenuItem.Text = "QueryEdit";
+            this.queryEditToolStripMenuItem.Click += new System.EventHandler(this.queryEditToolStripMenuItem_Click);
+            // 
             // MainAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -115,6 +124,7 @@
         private System.Windows.Forms.ToolStripMenuItem вийтиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem змінитиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem автівкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queryEditToolStripMenuItem;
     }
 }
 

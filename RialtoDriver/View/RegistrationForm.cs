@@ -1,9 +1,9 @@
-﻿using RialtoDriver;
+﻿using RialtoDriver; //?
 using RialtoLib.Model;
 using System;
 using System.Windows.Forms;
 
-namespace RialtoCompanyDriver.View
+namespace RialtoDriver.View //?
 {
     public partial class RegistrationForm : Form
     {
@@ -24,9 +24,10 @@ namespace RialtoCompanyDriver.View
 
             rialtoEntities = Program.rialtoEntities;
 
-            company_name.Text = driver.full_name;
+            full_name.Text = driver.full_name; //form
+            //? birth_date.Text = driver.birh_date;//form
+            phone_number.Text = driver.phone_number;//form
             email.Text = driver.email;
-            //adress.Text = company.address;
             isEditing = true;
         }
 
@@ -34,22 +35,22 @@ namespace RialtoCompanyDriver.View
         {
             try
             {
-                driver.company_name = company_name.Text;
-                company.email = email.Text;
-                company.address = adress.Text;
+                driver.full_name = full_name.Text;
+                //? driver.birh_date = birth_date.Text;//form
+                driver.phone_number = phone_number.Text;//form
+                driver.email = email.Text;
                 if (!isEditing)
                 {
-                    company.date_of_foundation = DateTime.Now;
-                    company.rating = 0;
+                    //company_id - ?
                     try
                     {
-                        rialtoEntities.Companies.Add(company);
+                        rialtoEntities.Drivers.Add(driver);
                         await rialtoEntities.SaveChangesAsync();
                         Close();
                     }
                     catch (Exception ex)
                     {
-                        rialtoEntities.Companies.Remove(company);
+                        rialtoEntities.Drivers.Remove(driver);
                         MessageBox.Show(ex.Message);
                     }
                 }
@@ -70,6 +71,11 @@ namespace RialtoCompanyDriver.View
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,3 +12,17 @@ C:\Users\hnure\Desktop\ArtemApp\kursovaBD\RialtoLib\obj\Debug\RialtoLib.dll
 C:\Users\hnure\Desktop\ArtemApp\kursovaBD\RialtoLib\obj\Debug\RialtoLib.pdb
 C:\Users\hnure\Desktop\ArtemApp\kursovaBD\RialtoLib\bin\Debug\Newtonsoft.Json.dll
 C:\Users\hnure\Desktop\ArtemApp\kursovaBD\RialtoLib\bin\Debug\Newtonsoft.Json.xml
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\RialtoLib.dll.config
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\RialtoLib.dll
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\RialtoLib.pdb
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\EntityFramework.dll
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\EntityFramework.SqlServer.dll
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\Newtonsoft.Json.dll
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\EntityFramework.xml
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\EntityFramework.SqlServer.xml
+E:\KURSACH\kursova2\RialtoLib\bin\Debug\Newtonsoft.Json.xml
+E:\KURSACH\kursova2\RialtoLib\obj\Debug\RialtoLib.csproj.AssemblyReference.cache
+E:\KURSACH\kursova2\RialtoLib\obj\Debug\RialtoLib.csproj.CoreCompileInputs.cache
+E:\KURSACH\kursova2\RialtoLib\obj\Debug\RialtoLib.csproj.CopyComplete
+E:\KURSACH\kursova2\RialtoLib\obj\Debug\RialtoLib.dll
+E:\KURSACH\kursova2\RialtoLib\obj\Debug\RialtoLib.pdb

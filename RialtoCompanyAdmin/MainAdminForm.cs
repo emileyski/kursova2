@@ -116,5 +116,10 @@ namespace RialtoCompanyAdmin
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void queryEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

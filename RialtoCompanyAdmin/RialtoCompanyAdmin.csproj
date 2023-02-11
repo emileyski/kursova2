@@ -71,6 +71,12 @@
     <Compile Include="View\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CarsHandlingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CarsHandlingForm.Designer.cs">
+      <DependentUpon>CarsHandlingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <EmbeddedResource Include="View\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CarsHandlingForm.resx">
+      <DependentUpon>CarsHandlingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>

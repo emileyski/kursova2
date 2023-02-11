@@ -69,14 +69,14 @@
             // вийтиToolStripMenuItem1
             // 
             this.вийтиToolStripMenuItem1.Name = "вийтиToolStripMenuItem1";
-            this.вийтиToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.вийтиToolStripMenuItem1.Size = new System.Drawing.Size(148, 26);
             this.вийтиToolStripMenuItem1.Text = "Вийти";
             this.вийтиToolStripMenuItem1.Click += new System.EventHandler(this.вийтиToolStripMenuItem1_Click);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
@@ -85,6 +85,7 @@
             this.автівкиToolStripMenuItem.Name = "автівкиToolStripMenuItem";
             this.автівкиToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.автівкиToolStripMenuItem.Text = "Автівки";
+            this.автівкиToolStripMenuItem.Click += new System.EventHandler(this.автівкиToolStripMenuItem_Click);
             // 
             // MainAdminForm
             // 

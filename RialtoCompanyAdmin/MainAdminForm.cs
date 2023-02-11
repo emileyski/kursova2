@@ -101,5 +101,20 @@ namespace RialtoCompanyAdmin
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void автівкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CarsHandlingForm carsHandlingForm = new CarsHandlingForm();
+                Hide();
+                carsHandlingForm.ShowDialog();
+                Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

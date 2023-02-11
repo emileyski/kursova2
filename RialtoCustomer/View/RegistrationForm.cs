@@ -77,34 +77,5 @@ namespace RialtoCustomer.View
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void email_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void company_name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -26,6 +26,7 @@ namespace RialtoDriver.View //?
 
             full_name.Text = driver.full_name; //form
             //? birth_date.Text = driver.birh_date;//form
+            birth_date.Value = driver.birh_date;
             phone_number.Text = driver.phone_number;//form
             email.Text = driver.email;
             isEditing = true;
@@ -37,6 +38,7 @@ namespace RialtoDriver.View //?
             {
                 driver.full_name = full_name.Text;
                 //? driver.birh_date = birth_date.Text;//form
+                driver.birh_date = birth_date.Value;
                 driver.phone_number = phone_number.Text;//form
                 driver.email = email.Text;
                 if (!isEditing)

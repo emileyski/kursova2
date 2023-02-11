@@ -33,17 +33,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.full_name = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
-            this.birth_date = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.phone_number = new System.Windows.Forms.TextBox();
             this.registrate_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.birth_date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 23);
+            this.label1.Location = new System.Drawing.Point(7, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 25);
             this.label1.TabIndex = 0;
@@ -52,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 143);
+            this.label2.Location = new System.Drawing.Point(7, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 25);
             this.label2.TabIndex = 1;
@@ -61,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 82);
+            this.label3.Location = new System.Drawing.Point(7, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 25);
             this.label3.TabIndex = 2;
@@ -70,7 +69,7 @@
             // full_name
             // 
             this.full_name.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.full_name.Location = new System.Drawing.Point(41, 51);
+            this.full_name.Location = new System.Drawing.Point(12, 34);
             this.full_name.Name = "full_name";
             this.full_name.Size = new System.Drawing.Size(220, 30);
             this.full_name.TabIndex = 4;
@@ -78,30 +77,15 @@
             // email
             // 
             this.email.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.email.Location = new System.Drawing.Point(41, 176);
+            this.email.Location = new System.Drawing.Point(12, 159);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(220, 30);
             this.email.TabIndex = 5;
             // 
-            // birth_date
-            // 
-            this.birth_date.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.birth_date.Location = new System.Drawing.Point(41, 112);
-            this.birth_date.Name = "birth_date";
-            this.birth_date.Size = new System.Drawing.Size(220, 30);
-            this.birth_date.TabIndex = 6;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(328, 23);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 341);
-            this.flowLayoutPanel1.TabIndex = 7;
-            // 
             // phone_number
             // 
             this.phone_number.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.phone_number.Location = new System.Drawing.Point(41, 237);
+            this.phone_number.Location = new System.Drawing.Point(12, 220);
             this.phone_number.Name = "phone_number";
             this.phone_number.Size = new System.Drawing.Size(220, 30);
             this.phone_number.TabIndex = 30;
@@ -109,7 +93,7 @@
             // registrate_btn
             // 
             this.registrate_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
-            this.registrate_btn.Location = new System.Drawing.Point(41, 273);
+            this.registrate_btn.Location = new System.Drawing.Point(12, 256);
             this.registrate_btn.Name = "registrate_btn";
             this.registrate_btn.Size = new System.Drawing.Size(220, 46);
             this.registrate_btn.TabIndex = 29;
@@ -120,26 +104,32 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 209);
+            this.label4.Location = new System.Drawing.Point(7, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(176, 25);
             this.label4.TabIndex = 31;
             this.label4.Text = "Номер телефону";
+            // 
+            // birth_date
+            // 
+            this.birth_date.Location = new System.Drawing.Point(12, 93);
+            this.birth_date.Name = "birth_date";
+            this.birth_date.Size = new System.Drawing.Size(220, 30);
+            this.birth_date.TabIndex = 32;
             // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(792, 397);
+            this.ClientSize = new System.Drawing.Size(242, 316);
+            this.Controls.Add(this.birth_date);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.full_name);
             this.Controls.Add(this.email);
             this.Controls.Add(this.registrate_btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.birth_date);
             this.Controls.Add(this.phone_number);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,10 +150,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox full_name;
         private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox birth_date;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button registrate_btn;
         private System.Windows.Forms.TextBox phone_number;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker birth_date;
     }
 }

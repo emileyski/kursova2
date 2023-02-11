@@ -35,7 +35,6 @@
             this.email = new System.Windows.Forms.TextBox();
             this.phone_number = new System.Windows.Forms.TextBox();
             this.registrate_btn = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -46,7 +45,6 @@
             this.label1.Size = new System.Drawing.Size(172, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Назва замовника";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -56,7 +54,6 @@
             this.label2.Size = new System.Drawing.Size(189, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Електронна пошта";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -66,7 +63,6 @@
             this.label3.Size = new System.Drawing.Size(176, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Номер телефону";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // customer_name
             // 
@@ -75,7 +71,6 @@
             this.customer_name.Name = "customer_name";
             this.customer_name.Size = new System.Drawing.Size(220, 30);
             this.customer_name.TabIndex = 4;
-            this.customer_name.TextChanged += new System.EventHandler(this.company_name_TextChanged);
             // 
             // email
             // 
@@ -84,7 +79,6 @@
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(220, 30);
             this.email.TabIndex = 5;
-            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // phone_number
             // 
@@ -93,7 +87,6 @@
             this.phone_number.Name = "phone_number";
             this.phone_number.Size = new System.Drawing.Size(220, 30);
             this.phone_number.TabIndex = 6;
-            this.phone_number.TextChanged += new System.EventHandler(this.adress_TextChanged);
             // 
             // registrate_btn
             // 
@@ -106,21 +99,13 @@
             this.registrate_btn.UseVisualStyleBackColor = false;
             this.registrate_btn.Click += new System.EventHandler(this.registrate_btn_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(294, 39);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 236);
-            this.flowLayoutPanel1.TabIndex = 7;
-            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(994, 493);
+            this.ClientSize = new System.Drawing.Size(238, 260);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.customer_name);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.email);
@@ -146,6 +131,5 @@
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.TextBox phone_number;
         private System.Windows.Forms.Button registrate_btn;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -40,3 +40,10 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\obj\Debug\RialtoLib.cspr
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\obj\Debug\RialtoLib.csproj.CopyComplete
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\obj\Debug\RialtoLib.dll
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\obj\Debug\RialtoLib.pdb
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\GMap.NET.Core.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\System.Data.SQLite.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\bin\Debug\System.Data.SQLite.xml

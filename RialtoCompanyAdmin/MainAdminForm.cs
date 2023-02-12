@@ -3,6 +3,7 @@ using RialtoCompanyAdmin.View;
 using RialtoLib.Model;
 using RialtoLib.Service;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RialtoCompanyAdmin
@@ -15,6 +16,11 @@ namespace RialtoCompanyAdmin
         {
             InitializeComponent();
             rialtoEntities = Program.rialtoEntities;
+
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.ForeColor = Color.Black;
+            dataGridView2.AutoGenerateColumns = true;
+            dataGridView2.ForeColor = Color.Black;
 
             isAuthorizated();
         }
@@ -106,7 +112,7 @@ namespace RialtoCompanyAdmin
         {
             try
             {
-                CarsHandlingForm carsHandlingForm = new CarsHandlingForm();
+                CarsHandlingForm carsHandlingForm = new CarsHandlingForm(company);
                 Hide();
                 carsHandlingForm.ShowDialog();
                 Show();
@@ -120,6 +126,21 @@ namespace RialtoCompanyAdmin
         private void queryEditToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void водіїToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DriversHandlingForm driversHandlingForm = new DriversHandlingForm(company);
+                Hide();
+                driversHandlingForm.ShowDialog();
+                Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

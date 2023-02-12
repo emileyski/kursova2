@@ -69,3 +69,11 @@ E:\KURSACH\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.csproj.CoreC
 E:\KURSACH\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.csproj.CopyComplete
 E:\KURSACH\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.exe
 E:\KURSACH\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.pdb
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoSQL_LB1_Program.QueryEdit.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.AddForms.AddCarForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.AddForms.AddModelForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\GMap.NET.Core.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.xml
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.DriversHandlingForm.resources

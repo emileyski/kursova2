@@ -44,6 +44,8 @@
             this.address_from_tb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.find_from = new System.Windows.Forms.Button();
+            this.find_to = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +60,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.find_to);
+            this.splitContainer1.Panel1.Controls.Add(this.find_from);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.address_to_tb);
@@ -209,7 +213,7 @@
             this.address_to_tb.ForeColor = System.Drawing.SystemColors.Highlight;
             this.address_to_tb.Location = new System.Drawing.Point(3, 134);
             this.address_to_tb.Name = "address_to_tb";
-            this.address_to_tb.Size = new System.Drawing.Size(230, 30);
+            this.address_to_tb.Size = new System.Drawing.Size(184, 30);
             this.address_to_tb.TabIndex = 38;
             // 
             // address_from_tb
@@ -217,7 +221,7 @@
             this.address_from_tb.ForeColor = System.Drawing.SystemColors.Highlight;
             this.address_from_tb.Location = new System.Drawing.Point(3, 31);
             this.address_from_tb.Name = "address_from_tb";
-            this.address_from_tb.Size = new System.Drawing.Size(230, 30);
+            this.address_from_tb.Size = new System.Drawing.Size(184, 30);
             this.address_from_tb.TabIndex = 39;
             // 
             // label4
@@ -237,6 +241,28 @@
             this.label5.Size = new System.Drawing.Size(164, 25);
             this.label5.TabIndex = 41;
             this.label5.Text = "Звідки забрати?";
+            // 
+            // find_from
+            // 
+            this.find_from.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.find_from.Location = new System.Drawing.Point(193, 28);
+            this.find_from.Name = "find_from";
+            this.find_from.Size = new System.Drawing.Size(40, 33);
+            this.find_from.TabIndex = 42;
+            this.find_from.Text = "🔍";
+            this.find_from.UseVisualStyleBackColor = false;
+            this.find_from.Click += new System.EventHandler(this.find_from_Click);
+            // 
+            // find_to
+            // 
+            this.find_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.find_to.Location = new System.Drawing.Point(192, 133);
+            this.find_to.Name = "find_to";
+            this.find_to.Size = new System.Drawing.Size(40, 33);
+            this.find_to.TabIndex = 43;
+            this.find_to.Text = "🔍";
+            this.find_to.UseVisualStyleBackColor = false;
+            this.find_to.Click += new System.EventHandler(this.find_to_Click);
             // 
             // AddOrderForm
             // 
@@ -277,5 +303,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox address_to_tb;
         private System.Windows.Forms.TextBox address_from_tb;
+        private System.Windows.Forms.Button find_to;
+        private System.Windows.Forms.Button find_from;
     }
 }

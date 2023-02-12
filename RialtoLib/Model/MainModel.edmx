@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище RialtoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище RialtoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Boby_type">
           <Key>
             <PropertyRef Name="boby_id" />
@@ -22,7 +22,6 @@
           <Property Name="carrying" Type="float" Nullable="false" />
           <Property Name="model_id" Type="int" Nullable="false" />
           <Property Name="car_number" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="next_tech_review" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Companies">
           <Key>
@@ -85,7 +84,7 @@
           <Property Name="model_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="model_name" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="brand" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="year_production" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="year_production" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -310,19 +309,74 @@
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RialtoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RialtoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Boby_type" EntityType="RialtoModel.Boby_type" />
+          <EntitySet Name="Cars" EntityType="RialtoModel.Car" />
+          <EntitySet Name="Companies" EntityType="RialtoModel.Company" />
+          <EntitySet Name="Contracts" EntityType="RialtoModel.Contract" />
+          <EntitySet Name="Customers" EntityType="RialtoModel.Customer" />
+          <EntitySet Name="Drivers" EntityType="RialtoModel.Driver" />
+          <EntitySet Name="Locations" EntityType="RialtoModel.Location" />
+          <EntitySet Name="Models" EntityType="RialtoModel.Model" />
+          <EntitySet Name="Orders" EntityType="RialtoModel.Order" />
+          <EntitySet Name="sysdiagrams" EntityType="RialtoModel.sysdiagram" />
+          <AssociationSet Name="FK_Cars_Boby_type" Association="RialtoModel.FK_Cars_Boby_type">
+            <End Role="Boby_type" EntitySet="Boby_type" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Boby_type" Association="RialtoModel.FK_Orders_Boby_type">
+            <End Role="Boby_type" EntitySet="Boby_type" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Companies" Association="RialtoModel.FK_Cars_Companies">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Models" Association="RialtoModel.FK_Cars_Models">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Cars" Association="RialtoModel.FK_Contracts_Cars">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Companies" Association="RialtoModel.FK_Contracts_Companies">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Drivers_Companies" Association="RialtoModel.FK_Drivers_Companies">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Driver" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Drivers" Association="RialtoModel.FK_Contracts_Drivers">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Orders" Association="RialtoModel.FK_Contracts_Orders">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Contracts" Association="RialtoModel.FK_Locations_Contracts">
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="RialtoModel.FK_Orders_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Boby_type">
           <Key>
             <PropertyRef Name="boby_id" />
           </Key>
           <Property Name="boby_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="boby_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Boby_type" FromRole="Boby_type" ToRole="Cars" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Boby_type" FromRole="Boby_type" ToRole="Orders" />
+          <Property Name="boby_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="RialtoModel.FK_Cars_Boby_type" FromRole="Boby_type" ToRole="Car" />
+          <NavigationProperty Name="Orders" Relationship="RialtoModel.FK_Orders_Boby_type" FromRole="Boby_type" ToRole="Order" />
         </EntityType>
         <EntityType Name="Car">
           <Key>
@@ -333,26 +387,25 @@
           <Property Name="boby_id" Type="Int32" Nullable="false" />
           <Property Name="carrying" Type="Double" Nullable="false" />
           <Property Name="model_id" Type="Int32" Nullable="false" />
-          <Property Name="car_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="next_tech_review" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Boby_type" Relationship="Self.FK_Cars_Boby_type" FromRole="Cars" ToRole="Boby_type" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_Cars_Companies" FromRole="Cars" ToRole="Companies" />
-          <NavigationProperty Name="Model" Relationship="Self.FK_Cars_Models" FromRole="Cars" ToRole="Models" />
-          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Cars" FromRole="Cars" ToRole="Contracts" />
+          <Property Name="car_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Boby_type" Relationship="RialtoModel.FK_Cars_Boby_type" FromRole="Car" ToRole="Boby_type" />
+          <NavigationProperty Name="Company" Relationship="RialtoModel.FK_Cars_Companies" FromRole="Car" ToRole="Company" />
+          <NavigationProperty Name="Model" Relationship="RialtoModel.FK_Cars_Models" FromRole="Car" ToRole="Model" />
+          <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Cars" FromRole="Car" ToRole="Contract" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="company_id" />
           </Key>
           <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="company_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="date_of_foundation" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="rating" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Companies" FromRole="Companies" ToRole="Cars" />
-          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Companies" FromRole="Companies" ToRole="Contracts" />
-          <NavigationProperty Name="Drivers" Relationship="Self.FK_Drivers_Companies" FromRole="Companies" ToRole="Drivers" />
+          <NavigationProperty Name="Cars" Relationship="RialtoModel.FK_Cars_Companies" FromRole="Company" ToRole="Car" />
+          <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Companies" FromRole="Company" ToRole="Contract" />
+          <NavigationProperty Name="Drivers" Relationship="RialtoModel.FK_Drivers_Companies" FromRole="Company" ToRole="Driver" />
         </EntityType>
         <EntityType Name="Contract">
           <Key>
@@ -366,55 +419,55 @@
           <Property Name="customer_id" Type="Int32" Nullable="false" />
           <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="finish_date" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Car" Relationship="Self.FK_Contracts_Cars" FromRole="Contracts" ToRole="Cars" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_Contracts_Companies" FromRole="Contracts" ToRole="Companies" />
-          <NavigationProperty Name="Driver" Relationship="Self.FK_Contracts_Drivers" FromRole="Contracts" ToRole="Drivers" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Contracts_Orders" FromRole="Contracts" ToRole="Orders" />
-          <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Contracts" FromRole="Contracts" ToRole="Locations" />
+          <NavigationProperty Name="Car" Relationship="RialtoModel.FK_Contracts_Cars" FromRole="Contract" ToRole="Car" />
+          <NavigationProperty Name="Company" Relationship="RialtoModel.FK_Contracts_Companies" FromRole="Contract" ToRole="Company" />
+          <NavigationProperty Name="Driver" Relationship="RialtoModel.FK_Contracts_Drivers" FromRole="Contract" ToRole="Driver" />
+          <NavigationProperty Name="Order" Relationship="RialtoModel.FK_Contracts_Orders" FromRole="Contract" ToRole="Order" />
+          <NavigationProperty Name="Locations" Relationship="RialtoModel.FK_Locations_Contracts" FromRole="Contract" ToRole="Location" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="customer_id" />
           </Key>
           <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="phone_number" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="RialtoModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
         </EntityType>
         <EntityType Name="Driver">
           <Key>
             <PropertyRef Name="driver_id" />
           </Key>
           <Property Name="driver_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="full_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="birh_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="company_id" Type="Int32" />
-          <Property Name="phone_number" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="Self.FK_Drivers_Companies" FromRole="Drivers" ToRole="Companies" />
-          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Drivers" FromRole="Drivers" ToRole="Contracts" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="RialtoModel.FK_Drivers_Companies" FromRole="Driver" ToRole="Company" />
+          <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Drivers" FromRole="Driver" ToRole="Contract" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="location_id" />
           </Key>
           <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="location1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="location1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="contract_id" Type="Int32" Nullable="false" />
           <Property Name="location_date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Contract" Relationship="Self.FK_Locations_Contracts" FromRole="Locations" ToRole="Contracts" />
+          <NavigationProperty Name="Contract" Relationship="RialtoModel.FK_Locations_Contracts" FromRole="Location" ToRole="Contract" />
         </EntityType>
         <EntityType Name="Model">
           <Key>
             <PropertyRef Name="model_id" />
           </Key>
           <Property Name="model_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="model_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="brand" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="year_production" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Models" FromRole="Models" ToRole="Cars" />
+          <Property Name="model_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="year_production" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="RialtoModel.FK_Cars_Models" FromRole="Model" ToRole="Car" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -426,223 +479,167 @@
           <Property Name="volume" Type="Double" Nullable="false" />
           <Property Name="body_type_id" Type="Int32" />
           <Property Name="price" Type="Double" Nullable="false" />
-          <Property Name="address_from" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="address_to" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="point_from" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="point_to" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Boby_type" Relationship="Self.FK_Orders_Boby_type" FromRole="Orders" ToRole="Boby_type" />
-          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Orders" FromRole="Orders" ToRole="Contracts" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+          <Property Name="address_from" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="address_to" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="point_from" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="point_to" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Boby_type" Relationship="RialtoModel.FK_Orders_Boby_type" FromRole="Order" ToRole="Boby_type" />
+          <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Orders" FromRole="Order" ToRole="Contract" />
+          <NavigationProperty Name="Customer" Relationship="RialtoModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Cars_Boby_type">
-          <End Role="Boby_type" Type="Self.Boby_type" Multiplicity="1" />
-          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <End Type="RialtoModel.Boby_type" Role="Boby_type" Multiplicity="1" />
+          <End Type="RialtoModel.Car" Role="Car" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Boby_type">
               <PropertyRef Name="boby_id" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="boby_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Orders_Boby_type">
-          <End Role="Boby_type" Type="Self.Boby_type" Multiplicity="0..1" />
-          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <End Type="RialtoModel.Boby_type" Role="Boby_type" Multiplicity="0..1" />
+          <End Type="RialtoModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Boby_type">
               <PropertyRef Name="boby_id" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="body_type_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Companies">
-          <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
-          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <End Type="RialtoModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="RialtoModel.Car" Role="Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Companies">
+            <Principal Role="Company">
               <PropertyRef Name="company_id" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="company_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Models">
-          <End Role="Models" Type="Self.Model" Multiplicity="1">
+          <End Type="RialtoModel.Model" Role="Model" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <End Type="RialtoModel.Car" Role="Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Models">
+            <Principal Role="Model">
               <PropertyRef Name="model_id" />
             </Principal>
-            <Dependent Role="Cars">
+            <Dependent Role="Car">
               <PropertyRef Name="model_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contracts_Cars">
-          <End Role="Cars" Type="Self.Car" Multiplicity="0..1" />
-          <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+          <End Type="RialtoModel.Car" Role="Car" Multiplicity="0..1" />
+          <End Type="RialtoModel.Contract" Role="Contract" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cars">
+            <Principal Role="Car">
               <PropertyRef Name="auto_id" />
             </Principal>
-            <Dependent Role="Contracts">
+            <Dependent Role="Contract">
               <PropertyRef Name="auto_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contracts_Companies">
-          <End Role="Companies" Type="Self.Company" Multiplicity="1">
+          <End Type="RialtoModel.Company" Role="Company" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+          <End Type="RialtoModel.Contract" Role="Contract" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Companies">
+            <Principal Role="Company">
               <PropertyRef Name="company_id" />
             </Principal>
-            <Dependent Role="Contracts">
+            <Dependent Role="Contract">
               <PropertyRef Name="company_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Drivers_Companies">
-          <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
-          <End Role="Drivers" Type="Self.Driver" Multiplicity="*" />
+          <End Type="RialtoModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="RialtoModel.Driver" Role="Driver" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Companies">
+            <Principal Role="Company">
               <PropertyRef Name="company_id" />
             </Principal>
-            <Dependent Role="Drivers">
+            <Dependent Role="Driver">
               <PropertyRef Name="company_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contracts_Drivers">
-          <End Role="Drivers" Type="Self.Driver" Multiplicity="0..1" />
-          <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+          <End Type="RialtoModel.Driver" Role="Driver" Multiplicity="0..1" />
+          <End Type="RialtoModel.Contract" Role="Contract" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Drivers">
+            <Principal Role="Driver">
               <PropertyRef Name="driver_id" />
             </Principal>
-            <Dependent Role="Contracts">
+            <Dependent Role="Contract">
               <PropertyRef Name="driver_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contracts_Orders">
-          <End Role="Orders" Type="Self.Order" Multiplicity="1">
+          <End Type="RialtoModel.Order" Role="Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Contracts" Type="Self.Contract" Multiplicity="*" />
+          <End Type="RialtoModel.Contract" Role="Contract" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Orders">
+            <Principal Role="Order">
               <PropertyRef Name="order_id" />
             </Principal>
-            <Dependent Role="Contracts">
+            <Dependent Role="Contract">
               <PropertyRef Name="order_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Locations_Contracts">
-          <End Role="Contracts" Type="Self.Contract" Multiplicity="1">
+          <End Type="RialtoModel.Contract" Role="Contract" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+          <End Type="RialtoModel.Location" Role="Location" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Contracts">
+            <Principal Role="Contract">
               <PropertyRef Name="contract_id" />
             </Principal>
-            <Dependent Role="Locations">
+            <Dependent Role="Location">
               <PropertyRef Name="contract_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Orders_Customers">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+          <End Type="RialtoModel.Customer" Role="Customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <End Type="RialtoModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Customer">
               <PropertyRef Name="customer_id" />
             </Principal>
-            <Dependent Role="Orders">
+            <Dependent Role="Order">
               <PropertyRef Name="customer_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RialtoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Boby_type" EntityType="Self.Boby_type" />
-          <EntitySet Name="Cars" EntityType="Self.Car" />
-          <EntitySet Name="Companies" EntityType="Self.Company" />
-          <EntitySet Name="Contracts" EntityType="Self.Contract" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Drivers" EntityType="Self.Driver" />
-          <EntitySet Name="Locations" EntityType="Self.Location" />
-          <EntitySet Name="Models" EntityType="Self.Model" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_Cars_Boby_type" Association="Self.FK_Cars_Boby_type">
-            <End Role="Boby_type" EntitySet="Boby_type" />
-            <End Role="Cars" EntitySet="Cars" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Boby_type" Association="Self.FK_Orders_Boby_type">
-            <End Role="Boby_type" EntitySet="Boby_type" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cars_Companies" Association="Self.FK_Cars_Companies">
-            <End Role="Companies" EntitySet="Companies" />
-            <End Role="Cars" EntitySet="Cars" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cars_Models" Association="Self.FK_Cars_Models">
-            <End Role="Models" EntitySet="Models" />
-            <End Role="Cars" EntitySet="Cars" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contracts_Cars" Association="Self.FK_Contracts_Cars">
-            <End Role="Cars" EntitySet="Cars" />
-            <End Role="Contracts" EntitySet="Contracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contracts_Companies" Association="Self.FK_Contracts_Companies">
-            <End Role="Companies" EntitySet="Companies" />
-            <End Role="Contracts" EntitySet="Contracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Drivers_Companies" Association="Self.FK_Drivers_Companies">
-            <End Role="Companies" EntitySet="Companies" />
-            <End Role="Drivers" EntitySet="Drivers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contracts_Drivers" Association="Self.FK_Contracts_Drivers">
-            <End Role="Drivers" EntitySet="Drivers" />
-            <End Role="Contracts" EntitySet="Contracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contracts_Orders" Association="Self.FK_Contracts_Orders">
-            <End Role="Orders" EntitySet="Orders" />
-            <End Role="Contracts" EntitySet="Contracts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Locations_Contracts" Association="Self.FK_Locations_Contracts">
-            <End Role="Contracts" EntitySet="Contracts" />
-            <End Role="Locations" EntitySet="Locations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -651,117 +648,116 @@
           <EntitySetMapping Name="Boby_type">
             <EntityTypeMapping TypeName="RialtoModel.Boby_type">
               <MappingFragment StoreEntitySet="Boby_type">
-                <ScalarProperty Name="boby_id" ColumnName="boby_id" />
                 <ScalarProperty Name="boby_name" ColumnName="boby_name" />
+                <ScalarProperty Name="boby_id" ColumnName="boby_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cars">
             <EntityTypeMapping TypeName="RialtoModel.Car">
               <MappingFragment StoreEntitySet="Cars">
-                <ScalarProperty Name="auto_id" ColumnName="auto_id" />
-                <ScalarProperty Name="company_id" ColumnName="company_id" />
-                <ScalarProperty Name="boby_id" ColumnName="boby_id" />
-                <ScalarProperty Name="carrying" ColumnName="carrying" />
-                <ScalarProperty Name="model_id" ColumnName="model_id" />
                 <ScalarProperty Name="car_number" ColumnName="car_number" />
-                <ScalarProperty Name="next_tech_review" ColumnName="next_tech_review" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+                <ScalarProperty Name="carrying" ColumnName="carrying" />
+                <ScalarProperty Name="boby_id" ColumnName="boby_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="auto_id" ColumnName="auto_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="RialtoModel.Company">
               <MappingFragment StoreEntitySet="Companies">
-                <ScalarProperty Name="company_id" ColumnName="company_id" />
-                <ScalarProperty Name="company_name" ColumnName="company_name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="date_of_foundation" ColumnName="date_of_foundation" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="date_of_foundation" ColumnName="date_of_foundation" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contracts">
             <EntityTypeMapping TypeName="RialtoModel.Contract">
               <MappingFragment StoreEntitySet="Contracts">
-                <ScalarProperty Name="contract_id" ColumnName="contract_id" />
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="company_id" ColumnName="company_id" />
-                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
-                <ScalarProperty Name="auto_id" ColumnName="auto_id" />
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
                 <ScalarProperty Name="finish_date" ColumnName="finish_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="auto_id" ColumnName="auto_id" />
+                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="contract_id" ColumnName="contract_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="RialtoModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Drivers">
             <EntityTypeMapping TypeName="RialtoModel.Driver">
               <MappingFragment StoreEntitySet="Drivers">
-                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
-                <ScalarProperty Name="full_name" ColumnName="full_name" />
-                <ScalarProperty Name="birh_date" ColumnName="birh_date" />
-                <ScalarProperty Name="company_id" ColumnName="company_id" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="birh_date" ColumnName="birh_date" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
             <EntityTypeMapping TypeName="RialtoModel.Location">
               <MappingFragment StoreEntitySet="Locations">
-                <ScalarProperty Name="location_id" ColumnName="location_id" />
-                <ScalarProperty Name="location1" ColumnName="location" />
-                <ScalarProperty Name="contract_id" ColumnName="contract_id" />
                 <ScalarProperty Name="location_date" ColumnName="location_date" />
+                <ScalarProperty Name="contract_id" ColumnName="contract_id" />
+                <ScalarProperty Name="location1" ColumnName="location" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Models">
             <EntityTypeMapping TypeName="RialtoModel.Model">
               <MappingFragment StoreEntitySet="Models">
-                <ScalarProperty Name="model_id" ColumnName="model_id" />
-                <ScalarProperty Name="model_name" ColumnName="model_name" />
-                <ScalarProperty Name="brand" ColumnName="brand" />
                 <ScalarProperty Name="year_production" ColumnName="year_production" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="RialtoModel.Order">
               <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="order_id" ColumnName="order_id" />
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="weight" ColumnName="weight" />
-                <ScalarProperty Name="volume" ColumnName="volume" />
-                <ScalarProperty Name="body_type_id" ColumnName="body_type_id" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="address_from" ColumnName="address_from" />
-                <ScalarProperty Name="address_to" ColumnName="address_to" />
-                <ScalarProperty Name="point_from" ColumnName="point_from" />
                 <ScalarProperty Name="point_to" ColumnName="point_to" />
+                <ScalarProperty Name="point_from" ColumnName="point_from" />
+                <ScalarProperty Name="address_to" ColumnName="address_to" />
+                <ScalarProperty Name="address_from" ColumnName="address_from" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="body_type_id" ColumnName="body_type_id" />
+                <ScalarProperty Name="volume" ColumnName="volume" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="RialtoModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

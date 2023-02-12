@@ -4,117 +4,116 @@
     <EntitySetMapping Name="Boby_type">
       <EntityTypeMapping TypeName="RialtoModel.Boby_type">
         <MappingFragment StoreEntitySet="Boby_type">
-          <ScalarProperty Name="boby_id" ColumnName="boby_id" />
           <ScalarProperty Name="boby_name" ColumnName="boby_name" />
+          <ScalarProperty Name="boby_id" ColumnName="boby_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cars">
       <EntityTypeMapping TypeName="RialtoModel.Car">
         <MappingFragment StoreEntitySet="Cars">
-          <ScalarProperty Name="auto_id" ColumnName="auto_id" />
-          <ScalarProperty Name="company_id" ColumnName="company_id" />
-          <ScalarProperty Name="boby_id" ColumnName="boby_id" />
-          <ScalarProperty Name="carrying" ColumnName="carrying" />
-          <ScalarProperty Name="model_id" ColumnName="model_id" />
           <ScalarProperty Name="car_number" ColumnName="car_number" />
-          <ScalarProperty Name="next_tech_review" ColumnName="next_tech_review" />
+          <ScalarProperty Name="model_id" ColumnName="model_id" />
+          <ScalarProperty Name="carrying" ColumnName="carrying" />
+          <ScalarProperty Name="boby_id" ColumnName="boby_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="auto_id" ColumnName="auto_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="RialtoModel.Company">
         <MappingFragment StoreEntitySet="Companies">
-          <ScalarProperty Name="company_id" ColumnName="company_id" />
-          <ScalarProperty Name="company_name" ColumnName="company_name" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="date_of_foundation" ColumnName="date_of_foundation" />
           <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="date_of_foundation" ColumnName="date_of_foundation" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Contracts">
       <EntityTypeMapping TypeName="RialtoModel.Contract">
         <MappingFragment StoreEntitySet="Contracts">
-          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="company_id" ColumnName="company_id" />
-          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
-          <ScalarProperty Name="auto_id" ColumnName="auto_id" />
-          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-          <ScalarProperty Name="start_date" ColumnName="start_date" />
           <ScalarProperty Name="finish_date" ColumnName="finish_date" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="auto_id" ColumnName="auto_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="RialtoModel.Customer">
         <MappingFragment StoreEntitySet="Customers">
-          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="registration_date" ColumnName="registration_date" />
           <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Drivers">
       <EntityTypeMapping TypeName="RialtoModel.Driver">
         <MappingFragment StoreEntitySet="Drivers">
-          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
-          <ScalarProperty Name="full_name" ColumnName="full_name" />
-          <ScalarProperty Name="birh_date" ColumnName="birh_date" />
-          <ScalarProperty Name="company_id" ColumnName="company_id" />
-          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
           <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="birh_date" ColumnName="birh_date" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Locations">
       <EntityTypeMapping TypeName="RialtoModel.Location">
         <MappingFragment StoreEntitySet="Locations">
-          <ScalarProperty Name="location_id" ColumnName="location_id" />
-          <ScalarProperty Name="location1" ColumnName="location" />
-          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
           <ScalarProperty Name="location_date" ColumnName="location_date" />
+          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
+          <ScalarProperty Name="location1" ColumnName="location" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Models">
       <EntityTypeMapping TypeName="RialtoModel.Model">
         <MappingFragment StoreEntitySet="Models">
-          <ScalarProperty Name="model_id" ColumnName="model_id" />
-          <ScalarProperty Name="model_name" ColumnName="model_name" />
-          <ScalarProperty Name="brand" ColumnName="brand" />
           <ScalarProperty Name="year_production" ColumnName="year_production" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model_name" ColumnName="model_name" />
+          <ScalarProperty Name="model_id" ColumnName="model_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="RialtoModel.Order">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-          <ScalarProperty Name="weight" ColumnName="weight" />
-          <ScalarProperty Name="volume" ColumnName="volume" />
-          <ScalarProperty Name="body_type_id" ColumnName="body_type_id" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="address_from" ColumnName="address_from" />
-          <ScalarProperty Name="address_to" ColumnName="address_to" />
-          <ScalarProperty Name="point_from" ColumnName="point_from" />
           <ScalarProperty Name="point_to" ColumnName="point_to" />
+          <ScalarProperty Name="point_from" ColumnName="point_from" />
+          <ScalarProperty Name="address_to" ColumnName="address_to" />
+          <ScalarProperty Name="address_from" ColumnName="address_from" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="body_type_id" ColumnName="body_type_id" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="RialtoModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

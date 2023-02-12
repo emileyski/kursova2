@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\hnure\Desktop\ArtemApp\kursovaBD\RialtoLib\Model\MainModel.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoLib\Model\MainModel.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

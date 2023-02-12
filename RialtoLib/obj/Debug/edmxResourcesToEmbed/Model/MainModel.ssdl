@@ -17,7 +17,6 @@
     <Property Name="carrying" Type="float" Nullable="false" />
     <Property Name="model_id" Type="int" Nullable="false" />
     <Property Name="car_number" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="next_tech_review" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="Companies">
     <Key>
@@ -80,7 +79,7 @@
     <Property Name="model_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="model_name" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="brand" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="year_production" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="year_production" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>

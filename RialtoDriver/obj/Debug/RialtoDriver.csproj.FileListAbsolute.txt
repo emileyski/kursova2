@@ -53,7 +53,6 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\EntityFrame
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\Newtonsoft.Json.xml
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.csproj.AssemblyReference.cache
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.csproj.SuggestedBindingRedirects.cache
-C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.Form1.resources
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.Properties.Resources.resources
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.View.AuthorizationForm.resources
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.View.RegistrationForm.resources
@@ -62,3 +61,8 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDrive
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.csproj.CopyComplete
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.exe
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.pdb
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\GMap.NET.Core.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.xml
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.MainDriverForm.resources

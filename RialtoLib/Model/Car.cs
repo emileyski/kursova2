@@ -26,7 +26,6 @@ namespace RialtoLib.Model
         public double carrying { get; set; }
         public int model_id { get; set; }
         public string car_number { get; set; }
-        public System.DateTime next_tech_review { get; set; }
     
         public virtual Boby_type Boby_type { get; set; }
         public virtual Company Company { get; set; }

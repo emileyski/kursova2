@@ -4,6 +4,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using Newtonsoft.Json;
 using RialtoLib.Model;
+using RialtoLib.Service;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,84 +42,79 @@ namespace RialtoCustomer.View
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.Position = new PointLatLng(48.5850, 36.1509);
         }
+        async void AddPinToMap(PointLatLng point)
+        {
+            switch (addPushPinsMode)
+            {
+                case AddPushPinsMode.From:
+                    {
+                        var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
+
+                        GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_pushpin)
+                        {
+                            ToolTipText = "Звідки"
+                        };
+
+                        var existedMarker = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
+                        if (existedMarker != null)
+                        {
+                            markers.Markers.Remove(existedMarker);
+                            //existedMarker = marker;
+                            markers.Markers.Add(marker);
+                        }
+                        else
+                            markers.Markers.Add(marker);
+                    }
+                    break;
+                case AddPushPinsMode.To:
+                    {
+                        var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
+
+                        GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_pushpin)
+                        {
+                            ToolTipText = "Куди"
+                        };
+
+                        var existedMarker = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
+                        if (existedMarker != null)
+                        {
+                            markers.Markers.Remove(existedMarker);
+                            //existedMarker = marker;
+                            markers.Markers.Add(marker);
+                        }
+                        else
+                            markers.Markers.Add(marker);
+                    }
+                    break;
+            }
+            var markers_overlay = gMapControl1.Overlays.First(f => f.Id == "markers");
+
+            if (markers_overlay.Markers.Count == 2)
+            {
+                GMapOverlay routes = gMapControl1.Overlays.FirstOrDefault(f => f.Id == "routes");
+
+                var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
+
+                var existedMarkerFrom = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
+                var existedMarkerTo = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
+
+                var route = (await RialtoLib.Service.MapService.GetRouteBeetwenTwoPoints(existedMarkerFrom.Position, existedMarkerTo.Position));
+                routes.Routes.Clear();
+                routes.Routes.Add(route.Item2);
+
+                distance_label.Text = $"Дистанція: {Math.Round(route.Item1, 2)} KM";
+                distance = (float)Math.Round(route.Item1, 2);
+            }
+        }
         float distance = 0;
         private async void gMapControl1_MouseDoubleClickAsync(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                switch (addPushPinsMode)
-                {
-                    case AddPushPinsMode.From:
-                        {
-                            //var point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
-                            //GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_pushpin)
-                            //{
-                            //    ToolTipText = "Звідки"
-                            //};
-
-                            //var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
-                            //markers.Markers.Add(marker);
-                            var point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
-                            var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
-
-                            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_pushpin)
-                            {
-                                ToolTipText = "Звідки"
-                            };
-
-                            var existedMarker = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
-                            if (existedMarker != null)
-                            {
-                                markers.Markers.Remove(existedMarker);
-                                //existedMarker = marker;
-                                markers.Markers.Add(marker);
-                            }
-                            else
-                                markers.Markers.Add(marker);
+                var point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
+                AddPinToMap(point);
 
 
-                        }
-                        break;
-                    case AddPushPinsMode.To:
-                        {
-                            var point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
-                            var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
-
-                            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_pushpin)
-                            {
-                                ToolTipText = "Куди"
-                            };
-
-                            var existedMarker = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
-                            if (existedMarker != null)
-                            {
-                                markers.Markers.Remove(existedMarker);
-                                //existedMarker = marker;
-                                markers.Markers.Add(marker);
-                            }
-                            else
-                                markers.Markers.Add(marker);
-                        }
-                        break;
-                }
-                var markers_overlay = gMapControl1.Overlays.First(f => f.Id == "markers");
-
-                if (markers_overlay.Markers.Count == 2)
-                {
-                    GMapOverlay routes = gMapControl1.Overlays.FirstOrDefault(f => f.Id == "routes");
-
-                    var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
-
-                    var existedMarkerFrom = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
-                    var existedMarkerTo = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
-
-                    var route = (await RialtoLib.Service.MapService.GetRouteBeetwenTwoPoints(existedMarkerFrom.Position, existedMarkerTo.Position));
-                    routes.Routes.Clear();
-                    routes.Routes.Add(route.Item2);
-
-                    distance_label.Text = $"Дистанція: {Math.Round(route.Item1, 2)} KM";
-                    distance = (float)Math.Round(route.Item1, 2);
-                }
             }
         }
         AddPushPinsMode addPushPinsMode = AddPushPinsMode.None;
@@ -139,6 +135,9 @@ namespace RialtoCustomer.View
             try
             {
                 var markers = gMapControl1.Overlays.First(f => f.Id == "markers");
+                if (markers.Markers.Count != 2)
+                    throw new Exception("Ви не вказали звідки забрати або куди доставити!");
+
 
                 var existedMarkerFrom = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
                 var existedMarkerTo = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
@@ -169,7 +168,7 @@ namespace RialtoCustomer.View
                 await rialtoEntities.SaveChangesAsync();
 
                 MessageBox.Show("Успішний успіх!");
-
+                Close();
             }
             catch (Exception ex)
             {
@@ -188,6 +187,34 @@ namespace RialtoCustomer.View
 
                 var price = (volume * 125 + weight) * distance / 100;
                 MessageBox.Show($"Орієнтовна ціна: {Math.Round(price, 2)} UAH");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void find_from_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                addPushPinsMode = AddPushPinsMode.From;
+                var point = await MapService.GetLocationByAdress(address_from_tb.Text);
+                AddPinToMap(point);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void find_to_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                addPushPinsMode = AddPushPinsMode.To;
+                var point = await MapService.GetLocationByAdress(address_to_tb.Text);
+                AddPinToMap(point);
             }
             catch (Exception ex)
             {

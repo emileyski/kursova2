@@ -24,6 +24,7 @@
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="RialtoModel.Company">
         <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="point_adress" ColumnName="point_adress" />
           <ScalarProperty Name="rating" ColumnName="rating" />
           <ScalarProperty Name="date_of_foundation" ColumnName="date_of_foundation" />
           <ScalarProperty Name="email" ColumnName="email" />
@@ -93,6 +94,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="RialtoModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="cargo_name" ColumnName="cargo_name" />
           <ScalarProperty Name="point_to" ColumnName="point_to" />
           <ScalarProperty Name="point_from" ColumnName="point_from" />
           <ScalarProperty Name="address_to" ColumnName="address_to" />

@@ -7,13 +7,13 @@
       <Diagram DiagramId="30a551bee6c048d0b8f7d9287692428c" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="RialtoModel.Boby_type" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="RialtoModel.Car" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="RialtoModel.Company" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="RialtoModel.Company" Width="1.5" PointX="0.75" PointY="3.5" />
         <EntityTypeShape EntityType="RialtoModel.Contract" Width="1.5" PointX="5.25" PointY="5" />
         <EntityTypeShape EntityType="RialtoModel.Customer" Width="1.5" PointX="0.75" PointY="11.625" />
         <EntityTypeShape EntityType="RialtoModel.Driver" Width="1.5" PointX="3" PointY="7.375" />
         <EntityTypeShape EntityType="RialtoModel.Location" Width="1.5" PointX="7.5" PointY="5.75" />
         <EntityTypeShape EntityType="RialtoModel.Model" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="RialtoModel.Order" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="RialtoModel.Order" Width="1.5" PointX="3" PointY="10.875" />
         <EntityTypeShape EntityType="RialtoModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.125" />
         <AssociationConnector Association="RialtoModel.FK_Cars_Boby_type" />
         <AssociationConnector Association="RialtoModel.FK_Orders_Boby_type" />

@@ -66,3 +66,6 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\GMap.NET.Wi
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.dll
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.xml
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\obj\Debug\RialtoDriver.MainDriverForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoDriver\bin\Debug\System.Data.SQLite.Linq.dll

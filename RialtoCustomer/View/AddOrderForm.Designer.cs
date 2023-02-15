@@ -29,23 +29,26 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.find_to = new System.Windows.Forms.Button();
+            this.find_from = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.address_to_tb = new System.Windows.Forms.TextBox();
+            this.address_from_tb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.push_order = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.volume_tb = new System.Windows.Forms.TextBox();
+            this.weight_tb = new System.Windows.Forms.TextBox();
+            this.distance_label = new System.Windows.Forms.Label();
             this.select_to = new System.Windows.Forms.Button();
             this.select_from = new System.Windows.Forms.Button();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
-            this.distance_label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.weight_tb = new System.Windows.Forms.TextBox();
-            this.volume_tb = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.push_order = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.address_to_tb = new System.Windows.Forms.TextBox();
-            this.address_from_tb = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.find_from = new System.Windows.Forms.Button();
-            this.find_to = new System.Windows.Forms.Button();
+            this.body_types_cb = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cargo_name_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,6 +63,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
+            this.splitContainer1.Panel1.Controls.Add(this.cargo_name_tb);
+            this.splitContainer1.Panel1.Controls.Add(this.body_types_cb);
             this.splitContainer1.Panel1.Controls.Add(this.find_to);
             this.splitContainer1.Panel1.Controls.Add(this.find_from);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
@@ -80,9 +86,139 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gMapControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(707, 523);
+            this.splitContainer1.Size = new System.Drawing.Size(707, 571);
             this.splitContainer1.SplitterDistance = 235;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // find_to
+            // 
+            this.find_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.find_to.Location = new System.Drawing.Point(192, 133);
+            this.find_to.Name = "find_to";
+            this.find_to.Size = new System.Drawing.Size(40, 33);
+            this.find_to.TabIndex = 43;
+            this.find_to.Text = "🔍";
+            this.find_to.UseVisualStyleBackColor = false;
+            this.find_to.Click += new System.EventHandler(this.find_to_Click);
+            // 
+            // find_from
+            // 
+            this.find_from.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.find_from.Location = new System.Drawing.Point(193, 28);
+            this.find_from.Name = "find_from";
+            this.find_from.Size = new System.Drawing.Size(40, 33);
+            this.find_from.TabIndex = 42;
+            this.find_from.Text = "🔍";
+            this.find_from.UseVisualStyleBackColor = false;
+            this.find_from.Click += new System.EventHandler(this.find_from_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(164, 25);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Звідки забрати?";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(2, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(171, 25);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Куди доставити?";
+            // 
+            // address_to_tb
+            // 
+            this.address_to_tb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.address_to_tb.Location = new System.Drawing.Point(3, 134);
+            this.address_to_tb.Name = "address_to_tb";
+            this.address_to_tb.Size = new System.Drawing.Size(184, 30);
+            this.address_to_tb.TabIndex = 38;
+            // 
+            // address_from_tb
+            // 
+            this.address_from_tb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.address_from_tb.Location = new System.Drawing.Point(3, 31);
+            this.address_from_tb.Name = "address_from_tb";
+            this.address_from_tb.Size = new System.Drawing.Size(184, 30);
+            this.address_from_tb.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 464);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 25);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Бажаний тип кузова";
+            // 
+            // push_order
+            // 
+            this.push_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.push_order.Location = new System.Drawing.Point(2, 530);
+            this.push_order.Name = "push_order";
+            this.push_order.Size = new System.Drawing.Size(230, 37);
+            this.push_order.TabIndex = 36;
+            this.push_order.Text = "ОПУБЛІКУВАТИ";
+            this.push_order.UseVisualStyleBackColor = false;
+            this.push_order.Click += new System.EventHandler(this.push_order_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
+            this.button1.Location = new System.Drawing.Point(2, 424);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 37);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "ПІДРАХУВАТИ ЦІНУ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 301);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 25);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Об\'єм";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 238);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 25);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Вага";
+            // 
+            // volume_tb
+            // 
+            this.volume_tb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.volume_tb.Location = new System.Drawing.Point(3, 329);
+            this.volume_tb.Name = "volume_tb";
+            this.volume_tb.Size = new System.Drawing.Size(230, 30);
+            this.volume_tb.TabIndex = 34;
+            // 
+            // weight_tb
+            // 
+            this.weight_tb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.weight_tb.Location = new System.Drawing.Point(3, 266);
+            this.weight_tb.Name = "weight_tb";
+            this.weight_tb.Size = new System.Drawing.Size(230, 30);
+            this.weight_tb.TabIndex = 34;
+            // 
+            // distance_label
+            // 
+            this.distance_label.AutoSize = true;
+            this.distance_label.Location = new System.Drawing.Point(5, 209);
+            this.distance_label.Name = "distance_label";
+            this.distance_label.Size = new System.Drawing.Size(110, 25);
+            this.distance_label.TabIndex = 32;
+            this.distance_label.Text = "Дистанція";
             // 
             // select_to
             // 
@@ -129,147 +265,45 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(468, 523);
+            this.gMapControl1.Size = new System.Drawing.Size(468, 571);
             this.gMapControl1.TabIndex = 12;
             this.gMapControl1.Zoom = 0D;
             this.gMapControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseDoubleClickAsync);
             // 
-            // distance_label
+            // body_types_cb
             // 
-            this.distance_label.AutoSize = true;
-            this.distance_label.Location = new System.Drawing.Point(5, 209);
-            this.distance_label.Name = "distance_label";
-            this.distance_label.Size = new System.Drawing.Size(110, 25);
-            this.distance_label.TabIndex = 32;
-            this.distance_label.Text = "Дистанція";
+            this.body_types_cb.BackColor = System.Drawing.SystemColors.Highlight;
+            this.body_types_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.body_types_cb.ForeColor = System.Drawing.Color.White;
+            this.body_types_cb.FormattingEnabled = true;
+            this.body_types_cb.Location = new System.Drawing.Point(2, 492);
+            this.body_types_cb.Name = "body_types_cb";
+            this.body_types_cb.Size = new System.Drawing.Size(229, 33);
+            this.body_types_cb.TabIndex = 44;
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 259);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 25);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Вага";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 360);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(240, 25);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "Назва вантажу(коротко)";
             // 
-            // weight_tb
+            // cargo_name_tb
             // 
-            this.weight_tb.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.weight_tb.Location = new System.Drawing.Point(2, 287);
-            this.weight_tb.Name = "weight_tb";
-            this.weight_tb.Size = new System.Drawing.Size(230, 30);
-            this.weight_tb.TabIndex = 34;
-            // 
-            // volume_tb
-            // 
-            this.volume_tb.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.volume_tb.Location = new System.Drawing.Point(2, 350);
-            this.volume_tb.Name = "volume_tb";
-            this.volume_tb.Size = new System.Drawing.Size(230, 30);
-            this.volume_tb.TabIndex = 34;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 322);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 25);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Об\'єм";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
-            this.button1.Location = new System.Drawing.Point(2, 386);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 37);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "ПІДРАХУВАТИ ЦІНУ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // push_order
-            // 
-            this.push_order.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
-            this.push_order.Location = new System.Drawing.Point(3, 483);
-            this.push_order.Name = "push_order";
-            this.push_order.Size = new System.Drawing.Size(230, 37);
-            this.push_order.TabIndex = 36;
-            this.push_order.Text = "ОПУБЛІКУВАТИ";
-            this.push_order.UseVisualStyleBackColor = false;
-            this.push_order.Click += new System.EventHandler(this.push_order_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 426);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(199, 25);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Бажаний тип кузова";
-            // 
-            // address_to_tb
-            // 
-            this.address_to_tb.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.address_to_tb.Location = new System.Drawing.Point(3, 134);
-            this.address_to_tb.Name = "address_to_tb";
-            this.address_to_tb.Size = new System.Drawing.Size(184, 30);
-            this.address_to_tb.TabIndex = 38;
-            // 
-            // address_from_tb
-            // 
-            this.address_from_tb.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.address_from_tb.Location = new System.Drawing.Point(3, 31);
-            this.address_from_tb.Name = "address_from_tb";
-            this.address_from_tb.Size = new System.Drawing.Size(184, 30);
-            this.address_from_tb.TabIndex = 39;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 25);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Куди доставити?";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(164, 25);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Звідки забрати?";
-            // 
-            // find_from
-            // 
-            this.find_from.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
-            this.find_from.Location = new System.Drawing.Point(193, 28);
-            this.find_from.Name = "find_from";
-            this.find_from.Size = new System.Drawing.Size(40, 33);
-            this.find_from.TabIndex = 42;
-            this.find_from.Text = "🔍";
-            this.find_from.UseVisualStyleBackColor = false;
-            this.find_from.Click += new System.EventHandler(this.find_from_Click);
-            // 
-            // find_to
-            // 
-            this.find_to.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(174)))), ((int)(((byte)(217)))));
-            this.find_to.Location = new System.Drawing.Point(192, 133);
-            this.find_to.Name = "find_to";
-            this.find_to.Size = new System.Drawing.Size(40, 33);
-            this.find_to.TabIndex = 43;
-            this.find_to.Text = "🔍";
-            this.find_to.UseVisualStyleBackColor = false;
-            this.find_to.Click += new System.EventHandler(this.find_to_Click);
+            this.cargo_name_tb.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cargo_name_tb.Location = new System.Drawing.Point(3, 388);
+            this.cargo_name_tb.Name = "cargo_name_tb";
+            this.cargo_name_tb.Size = new System.Drawing.Size(230, 30);
+            this.cargo_name_tb.TabIndex = 46;
             // 
             // AddOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(707, 523);
+            this.ClientSize = new System.Drawing.Size(707, 571);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ForeColor = System.Drawing.Color.White;
@@ -305,5 +339,8 @@
         private System.Windows.Forms.TextBox address_from_tb;
         private System.Windows.Forms.Button find_to;
         private System.Windows.Forms.Button find_from;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox cargo_name_tb;
+        private System.Windows.Forms.ComboBox body_types_cb;
     }
 }

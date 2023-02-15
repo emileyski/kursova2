@@ -18,18 +18,14 @@ namespace RialtoCustomer.View
         public AddOrderForm(Customer customer)
         {
             InitializeComponent();
-            ConfigMapControl();
             rialtoEntities = Program.rialtoEntities;
             this.customer = customer;
-
-
-            GMapOverlay markers = new GMapOverlay("markers");
-            GMapOverlay routes = new GMapOverlay("routes");
-            gMapControl1.Overlays.Add(routes);
-            gMapControl1.Overlays.Add(markers);
-
-            //GMapOverlay markers = new GMapOverlay("markers");
-            //gMapControl1.Overlays.Add(markers);
+            ConfigMapControl();
+        }
+        public AddOrderForm(Order order) 
+        {
+            InitializeComponent();
+            ConfigMapControl();
         }
         private void ConfigMapControl()
         {
@@ -41,6 +37,18 @@ namespace RialtoCustomer.View
             //gMapControl1.ShowCenter = false;
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.Position = new PointLatLng(48.5850, 36.1509);
+
+            GMapOverlay markers = new GMapOverlay("markers");
+            GMapOverlay routes = new GMapOverlay("routes");
+            gMapControl1.Overlays.Add(routes);
+            gMapControl1.Overlays.Add(markers);
+
+            body_types_cb.Items.Add("Не важливо");
+            var bodyTypesSource = rialtoEntities.Boby_type.Select(s => s.boby_name).ToList();
+            foreach(var body in bodyTypesSource)
+            {
+                body_types_cb.Items.Add(body);
+            }
         }
         async void AddPinToMap(PointLatLng point)
         {
@@ -107,13 +115,12 @@ namespace RialtoCustomer.View
             }
         }
         float distance = 0;
-        private async void gMapControl1_MouseDoubleClickAsync(object sender, MouseEventArgs e)
+        private void gMapControl1_MouseDoubleClickAsync(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 var point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
                 AddPinToMap(point);
-
 
             }
         }
@@ -138,7 +145,6 @@ namespace RialtoCustomer.View
                 if (markers.Markers.Count != 2)
                     throw new Exception("Ви не вказали звідки забрати або куди доставити!");
 
-
                 var existedMarkerFrom = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Звідки");
                 var existedMarkerTo = markers.Markers.FirstOrDefault(f => f.ToolTipText == "Куди");
 
@@ -162,7 +168,10 @@ namespace RialtoCustomer.View
                     point_from = JsonConvert.SerializeObject(pointFrom),
                     point_to = JsonConvert.SerializeObject(pointTo),
                     price = price,
+                    cargo_name = cargo_name_tb.Text,
                 };
+                if (body_types_cb.SelectedIndex > 0)
+                    order.body_type_id = rialtoEntities.Boby_type.First(f => f.boby_name == body_types_cb.Text).boby_id;
 
                 rialtoEntities.Orders.Add(order);
                 await rialtoEntities.SaveChangesAsync();

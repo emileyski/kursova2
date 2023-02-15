@@ -90,6 +90,7 @@
     <Property Name="email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="date_of_foundation" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="rating" Type="Int32" Nullable="false" />
+    <Property Name="point_adress" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Cars" Relationship="RialtoModel.FK_Cars_Companies" FromRole="Company" ToRole="Car" />
     <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Companies" FromRole="Company" ToRole="Contract" />
     <NavigationProperty Name="Drivers" Relationship="RialtoModel.FK_Drivers_Companies" FromRole="Company" ToRole="Driver" />
@@ -104,8 +105,8 @@
     <Property Name="driver_id" Type="Int32" />
     <Property Name="auto_id" Type="Int32" />
     <Property Name="customer_id" Type="Int32" Nullable="false" />
-    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="finish_date" Type="DateTime" Precision="0" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="finish_date" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Car" Relationship="RialtoModel.FK_Contracts_Cars" FromRole="Contract" ToRole="Car" />
     <NavigationProperty Name="Company" Relationship="RialtoModel.FK_Contracts_Companies" FromRole="Contract" ToRole="Company" />
     <NavigationProperty Name="Driver" Relationship="RialtoModel.FK_Contracts_Drivers" FromRole="Contract" ToRole="Driver" />
@@ -141,7 +142,7 @@
       <PropertyRef Name="location_id" />
     </Key>
     <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="location1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="location1" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="contract_id" Type="Int32" Nullable="false" />
     <Property Name="location_date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Contract" Relationship="RialtoModel.FK_Locations_Contracts" FromRole="Location" ToRole="Contract" />
@@ -170,6 +171,7 @@
     <Property Name="address_to" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="point_from" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="point_to" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cargo_name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Boby_type" Relationship="RialtoModel.FK_Orders_Boby_type" FromRole="Order" ToRole="Boby_type" />
     <NavigationProperty Name="Contracts" Relationship="RialtoModel.FK_Contracts_Orders" FromRole="Order" ToRole="Contract" />
     <NavigationProperty Name="Customer" Relationship="RialtoModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />

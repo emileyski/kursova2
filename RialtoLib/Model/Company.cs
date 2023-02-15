@@ -28,6 +28,7 @@ namespace RialtoLib.Model
         public string email { get; set; }
         public System.DateTime date_of_foundation { get; set; }
         public int rating { get; set; }
+        public string point_adress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Cars { get; set; }

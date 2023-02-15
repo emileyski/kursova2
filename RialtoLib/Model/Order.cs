@@ -30,6 +30,7 @@ namespace RialtoLib.Model
         public string address_to { get; set; }
         public string point_from { get; set; }
         public string point_to { get; set; }
+        public string cargo_name { get; set; }
     
         public virtual Boby_type Boby_type { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

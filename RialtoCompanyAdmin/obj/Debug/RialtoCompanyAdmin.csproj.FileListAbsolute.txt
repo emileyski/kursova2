@@ -77,3 +77,10 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\GMap.
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.dll
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.xml
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.DriversHandlingForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.CompletedContractsForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\obj\Debug\RialtoCompanyAdmin.View.StatisticForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\Xceed.Document.NET.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCompanyAdmin\bin\Debug\Xceed.Words.NET.dll

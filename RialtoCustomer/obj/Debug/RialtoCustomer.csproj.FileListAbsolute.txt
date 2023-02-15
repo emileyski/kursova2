@@ -47,3 +47,5 @@ C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\bin\Debug\System.Da
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\bin\Debug\System.Data.SQLite.xml
 C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\obj\Debug\RialtoCustomer.View.AddOrderForm.resources
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\bin\Debug\Xceed.Document.NET.dll
+C:\Users\hnure\Desktop\ArtemApp\copy\kursova2\RialtoCustomer\bin\Debug\Xceed.Words.NET.dll

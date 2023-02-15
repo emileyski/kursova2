@@ -28,6 +28,7 @@
     <Property Name="email" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="date_of_foundation" Type="date" Nullable="false" />
     <Property Name="rating" Type="int" Nullable="false" />
+    <Property Name="point_adress" Type="nvarchar" MaxLength="150" Nullable="false" />
   </EntityType>
   <EntityType Name="Contracts">
     <Key>
@@ -39,8 +40,8 @@
     <Property Name="driver_id" Type="int" />
     <Property Name="auto_id" Type="int" />
     <Property Name="customer_id" Type="int" Nullable="false" />
-    <Property Name="start_date" Type="date" Nullable="false" />
-    <Property Name="finish_date" Type="date" />
+    <Property Name="start_date" Type="datetime" Nullable="false" />
+    <Property Name="finish_date" Type="datetime" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -68,7 +69,7 @@
       <PropertyRef Name="location_id" />
     </Key>
     <Property Name="location_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="location" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="contract_id" Type="int" Nullable="false" />
     <Property Name="location_date" Type="datetime" Nullable="false" />
   </EntityType>
@@ -95,6 +96,7 @@
     <Property Name="address_to" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="point_from" Type="nvarchar(max)" Nullable="false" />
     <Property Name="point_to" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cargo_name" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
